@@ -81,14 +81,11 @@
       document.head.appendChild(script);
 
       script.onload = function () {
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-
         gtag('js', new Date());
         gtag('config', 'G-QG7NR72H0V'); // Replace with your GA ID
+        gtag('event', 'foo', {
+          'some_content': 'bar'
+        });
       };
     });
 
