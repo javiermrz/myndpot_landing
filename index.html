@@ -49,13 +49,13 @@
   <script>
     console.log("Adding event listener")
 
-    function addOsanoListener() {
-
-      if (window.osano) {
-
-        window.addEventListener("OsanoConsentChanged", function () {
+    // function addOsanoListener() {
+    //
+    //   if (window.osano) {
+    //
+    //     window.addEventListener("OsanoConsentChanged", function () {
           console.log("Consent changed");
-          if (osano.isConsentGiven("performance")) {
+          // if (osano.isConsentGiven("performance")) {
             // Only load Google Analytics if the user consents to "performance"
             window.dataLayer = window.dataLayer || [];
 
@@ -65,12 +65,12 @@
 
             gtag('js', new Date());
             gtag('config', 'G-QG7NR72H0V');
-          }
-        });
-      }
-      console.log("Osano not loaded yet, retrying...");
-      setTimeout(addOsanoListener, 500); // Retry every 500ms
-    }
+          // }
+        // });
+    //   }
+    //   console.log("Osano not loaded yet, retrying...");
+    //   // setTimeout(addOsanoListener, 500); // Retry every 500ms
+    // }
 
 
     addOsanoListener();
