@@ -52,6 +52,17 @@
     window.Osano('onInitialized', consent => console.log('Osano.js initialized', consent));
     window.Osano('onConsentSaved', consent => {
       console.log('Osano.js consent saved', consent);
+      if(consent["ANALYTICS"] === "ACCEPT"){
+        console.log('Loading Google Analytics');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-QG7NR72H0V');
+      }
     });
 
 
@@ -63,14 +74,14 @@
     //       console.log("Consent changed");
           // if (osano.isConsentGiven("performance")) {
             // Only load Google Analytics if the user consents to "performance"
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'G-QG7NR72H0V');
+            // window.dataLayer = window.dataLayer || [];
+            //
+            // function gtag() {
+            //   dataLayer.push(arguments);
+            // }
+            //
+            // gtag('js', new Date());
+            // gtag('config', 'G-QG7NR72H0V');
           // }
         // });
     //   }
