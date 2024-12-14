@@ -44,7 +44,7 @@
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>
   <script>
-
+    console.log("Adding event listener")
     window.addEventListener("OsanoConsentChanged", function () {
       console.log("Consent changed");
       if (osano.isConsentGiven("performance")) {
