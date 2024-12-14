@@ -284,6 +284,7 @@ html, body {
   --dark-red: #570101;
   --light-orange: #FFE9DC;
   --dark-gray: #62628a;
+  --slightly-dark-gray: #757594;
   --gray: #8686a6;
   --light-gray: #dbdbea;
   --content-width: 100%;
@@ -667,7 +668,7 @@ header {
 }
 
 .button.disabled:hover {
-  background-color: var(--dark-gray);
+  background-color: var(--slightly-dark-gray);
 }
 
 .download-buttons {
