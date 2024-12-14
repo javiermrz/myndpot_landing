@@ -290,10 +290,12 @@ html, body {
   --red: #FF0000;
   --white: #FFFFFF;
   --dark-red: #570101;
+  --slightly-light-orange: #fdc7a5;
   --light-orange: #FFE9DC;
   --dark-gray: #62628a;
   --slightly-dark-gray: #757594;
   --gray: #8686a6;
+  --slightly-light-gray: #b7b7cb;
   --light-gray: #dbdbea;
   --content-width: 100%;
   --max-content-width: 400px;
@@ -556,18 +558,39 @@ header {
     gap: var(--base);
   }
 
-  .dropdown .dropdown-item:hover {
-    background-color: var(--light-orange);
-  }
-
-.dropdown .dropdown-item.disabled {
+  .dropdown .dropdown-item.disabled {
     color: var(--gray);
     cursor: not-allowed;
   }
 
-  .dropdown .dropdown-item.disabled:hover {
-    background-color: var(--light-gray);
+  @media (hover: hover) and (pointer: fine) {
+    .dropdown .dropdown-item:hover {
+      background-color: var(--light-orange);
+    }
+
+    .dropdown .dropdown-item:active {
+      background-color: var(--slightly-light-orange);
+    }
+
+    .dropdown .dropdown-item.disabled:hover {
+      background-color: var(--light-gray);
+    }
+
+    .dropdown .dropdown-item.disabled:active {
+      background-color: var(--slightly-light-gray);
+    }
   }
+
+  @media (hover: none) and (pointer: coarse) {
+    .dropdown .dropdown-item:active {
+      background-color: var(--light-orange);
+    }
+
+    .dropdown .dropdown-item.disabled:active {
+      background-color: var(--light-gray);
+    }
+  }
+
 
   .triangle {
     width: 0;
@@ -600,6 +623,7 @@ header {
 
   a {
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent; /* Disables the blue square */
   }
 
 
@@ -662,10 +686,7 @@ header {
   font-family: var(--primary-font);
   transition: color 0.3s, background-color 0.3s ease;
   text-decoration: none;
-}
-
-.button:hover {
-  background-color: var(--dark-red);
+  -webkit-tap-highlight-color: transparent; /* Disables the blue square */
 }
 
 .button.disabled {
@@ -675,8 +696,28 @@ header {
   color: var(--dark-red);
 }
 
-.button.disabled:hover {
-  background-color: var(--slightly-dark-gray);
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background-color: var(--dark-red);
+  }
+
+  .button:active {
+    background-color: black;
+  }
+
+  .button.disabled:hover {
+    background-color: var(--slightly-dark-gray);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .button:active {
+    background-color: var(--dark-red);
+  }
+
+  .button.disabled:active {
+    background-color: var(--slightly-dark-gray);
+  }
 }
 
 .download-buttons {
