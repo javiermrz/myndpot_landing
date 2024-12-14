@@ -50,20 +50,17 @@
     console.log("Adding event listener")
     ;(function(w,o,d){w[o]=w[o]||function(){w[o][d].push(arguments)};w[o][d]=w[o][d]||[]})(window,'Osano','data');
     window.Osano('onInitialized', consent => console.log('Osano.js initialized', consent));
-    window.Osano('onAnalytics', consent => console.log('Analytics consent changed', consent));
-    window.Osano('onConsentSaved', consent => {
-      console.log('Osano.js consent saved', consent);
-      if(consent["ANALYTICS"] === "ACCEPT"){
-        console.log('Loading Google Analytics');
-        window.dataLayer = window.dataLayer || [];
+    window.Osano('onAnalytics', consent => {
+      console.log('Analytics consent changed', consent);
+      console.log('Loading Google Analytics');
+      window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-QG7NR72H0V');
+      function gtag() {
+        dataLayer.push(arguments);
       }
+
+      gtag('js', new Date());
+      gtag('config', 'G-QG7NR72H0V');
     });
 
 
