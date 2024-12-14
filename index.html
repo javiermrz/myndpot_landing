@@ -48,23 +48,32 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>
   <script>
     console.log("Adding event listener")
-    if (window.osano) {
 
-      window.addEventListener("OsanoConsentChanged", function () {
-        console.log("Consent changed");
-        if (osano.isConsentGiven("performance")) {
-          // Only load Google Analytics if the user consents to "performance"
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
+    function addOsanoListener() {
+
+      if (window.osano) {
+
+        window.addEventListener("OsanoConsentChanged", function () {
+          console.log("Consent changed");
+          if (osano.isConsentGiven("performance")) {
+            // Only load Google Analytics if the user consents to "performance"
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-QG7NR72H0V');
           }
-          gtag('js', new Date());
-          gtag('config', 'G-QG7NR72H0V');
-        }
-      });
-    } else {
-      console.log("Osano not loaded yet");
+        });
+      }
+      console.log("Osano not loaded yet, retrying...");
+      setTimeout(addOsanoListener, 500); // Retry every 500ms
     }
+
+
+    addOsanoListener();
 
   </script>
   <title>MyndPot | Manage your life's errands</title>
