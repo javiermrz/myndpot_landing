@@ -45,7 +45,7 @@
       "description": "MyndPot is a productivity app to track tasks and goals."
     }
   </script>
-<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>-->
+  <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>-->
   <script>
     console.log("Adding event listener")
     ;(function (w, o, d) {
@@ -54,13 +54,26 @@
       };
       w[o][d] = w[o][d] || []
     })(window, 'Osano', 'data');
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+    });
+
     window.Osano('onInitialized', consent => console.log('Osano.js initialized', consent));
     window.Osano('onAnalytics', consent => {
       console.log('Analytics consent changed', consent);
-      console.log('Loading Google Analytics');
-
-      setTimeout(() => {
-        console.log('Loading Google Analytics')
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+      });
+      console.log('Consent mode changed', consent);
+      console.log('Loading Google Analytics')
 
       const script = document.createElement('script');
       script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V'; // Replace with your GA ID
@@ -77,7 +90,6 @@
         gtag('js', new Date());
         gtag('config', 'G-QG7NR72H0V'); // Replace with your GA ID
       };
-      }, 5000);
     });
 
 
