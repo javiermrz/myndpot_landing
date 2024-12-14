@@ -48,6 +48,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>
   <script>
     console.log("Adding event listener")
+    ;(function(w,o,d){w[o]=w[o]||function(){w[o][d].push(arguments)};w[o][d]=w[o][d]||[]})(window,'Osano','data');
+    window.Osano('onInitialized', consent => console.log('Osano.js initialized', consent));
+    window.Osano('osano-cm-consent-saved', consent => console.log('Osano.js consent saved', consent));
+
 
     // function addOsanoListener() {
     //
