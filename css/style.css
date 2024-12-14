@@ -623,6 +623,7 @@ header {
 
   a {
     text-decoration: none;
+    user-select: none;
     -webkit-tap-highlight-color: transparent; /* Disables the blue square */
   }
 
@@ -686,6 +687,7 @@ header {
   font-family: var(--primary-font);
   transition: color 0.3s, background-color 0.3s ease;
   text-decoration: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent; /* Disables the blue square */
 }
 
@@ -707,6 +709,10 @@ header {
 
   .button.disabled:hover {
     background-color: var(--slightly-dark-gray);
+  }
+
+  .button.disabled:active {
+    background-color: var(--dark-gray);
   }
 }
 
