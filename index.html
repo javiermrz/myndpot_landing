@@ -46,6 +46,7 @@
   <script>
 
     window.addEventListener("OsanoConsentChanged", function () {
+      console.log("Consent changed");
       if (osano.isConsentGiven("performance")) {
         // Only load Google Analytics if the user consents to "performance"
         window.dataLayer = window.dataLayer || [];
