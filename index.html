@@ -48,19 +48,32 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V"></script>
   <script>
     console.log("Adding event listener")
-    ;(function(w,o,d){w[o]=w[o]||function(){w[o][d].push(arguments)};w[o][d]=w[o][d]||[]})(window,'Osano','data');
+    ;(function (w, o, d) {
+      w[o] = w[o] || function () {
+        w[o][d].push(arguments)
+      };
+      w[o][d] = w[o][d] || []
+    })(window, 'Osano', 'data');
     window.Osano('onInitialized', consent => console.log('Osano.js initialized', consent));
     window.Osano('onAnalytics', consent => {
       console.log('Analytics consent changed', consent);
       console.log('Loading Google Analytics');
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QG7NR72H0V'; // Replace with your GA ID
+      script.async = true;
+      document.head.appendChild(script);
 
-      gtag('js', new Date());
-      gtag('config', 'G-QG7NR72H0V');
+      script.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-QG7NR72H0V'); // Replace with your GA ID
+      };
     });
 
 
@@ -70,18 +83,18 @@
     //
     //     window.addEventListener("OsanoConsentChanged", function () {
     //       console.log("Consent changed");
-          // if (osano.isConsentGiven("performance")) {
-            // Only load Google Analytics if the user consents to "performance"
-            // window.dataLayer = window.dataLayer || [];
-            //
-            // function gtag() {
-            //   dataLayer.push(arguments);
-            // }
-            //
-            // gtag('js', new Date());
-            // gtag('config', 'G-QG7NR72H0V');
-          // }
-        // });
+    // if (osano.isConsentGiven("performance")) {
+    // Only load Google Analytics if the user consents to "performance"
+    // window.dataLayer = window.dataLayer || [];
+    //
+    // function gtag() {
+    //   dataLayer.push(arguments);
+    // }
+    //
+    // gtag('js', new Date());
+    // gtag('config', 'G-QG7NR72H0V');
+    // }
+    // });
     //   }
     //   console.log("Osano not loaded yet, retrying...");
     //   // setTimeout(addOsanoListener, 500); // Retry every 500ms
