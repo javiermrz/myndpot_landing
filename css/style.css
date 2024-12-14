@@ -276,6 +276,10 @@ html, body {
   font-family: 'Nunito', sans-serif;
 }
 
+.osano-cm-widget {
+  display: none !important;
+}
+
 :root {
   --primary-font: 'Comfortaa', cursive;
   --secondary-font: 'Nunito', sans-serif;
