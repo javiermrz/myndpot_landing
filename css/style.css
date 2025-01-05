@@ -288,7 +288,8 @@ html, body {
   --primary-font: 'Comfortaa', cursive;
   --secondary-font: 'Nunito', sans-serif;
   --red: #FF0000;
-  --slightly-dark-red: #e70202;
+  /*--slightly-dark-red: #e70202;*/
+  --slightly-dark-red: #e00101;
   --white: #FFFFFF;
   --dark-red: #570101;
   --slightly-light-orange: #fdc7a5;
