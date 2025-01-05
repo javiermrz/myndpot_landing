@@ -288,6 +288,7 @@ html, body {
   --primary-font: 'Comfortaa', cursive;
   --secondary-font: 'Nunito', sans-serif;
   --red: #FF0000;
+  --slightly-dark-red: #e70202;
   --white: #FFFFFF;
   --dark-red: #570101;
   --slightly-light-orange: #fdc7a5;
@@ -297,9 +298,16 @@ html, body {
   --gray: #8686a6;
   --slightly-light-gray: #b7b7cb;
   --light-gray: #dbdbea;
+  /*--hero-background-color: var(--light-orange);*/
+  --hero-background-color: var(--red);
+  --hero-text-color: var(--white);
+  --hero-button-background-color: var(--white);
+  --hero-button-text-color: var(--dark-red);
+  --hero-button-hover-text-color: var(--red);
   --content-width: 100%;
   --max-content-width: 400px;
   --dropdown-width: 260px;
+  --main-top-padding: var(--xxl);
   --features-group-section-justify-content: center;
   --title-size: 3rem;
   --screenshot-img-max-height: 370px;
@@ -309,7 +317,9 @@ html, body {
   --app-title-size: 1.8rem;
   --menu-item-text-size: 1.2rem;
   --menu-items-gap: var(--base);
-  --vertical-sections-spacing: var(--xxxl);
+  --hero-top-padding: var(--xxxl);
+  --hero-bottom-padding: 68px;
+  --download-buttons-flex-direction: column;
   --download-buttons-size: 1rem;
   --feature-title-size: 1.3rem;
   --feature-text-size: 1rem;
@@ -323,6 +333,7 @@ html, body {
     --content-width: 550px;
     --max-content-width: var(--content-width);
     --dropdown-width: 280px;
+    --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: center;
     --title-size: 3rem;
     --app-title-size: 2rem;
@@ -331,7 +342,9 @@ html, body {
     --screenshot-wrapper-width: var(--content-width);
     --menu-item-text-size: 1.4rem;
     --menu-items-gap: var(--base);
-    --vertical-sections-spacing: calc(var(--xxxl) * 1.5);
+    --hero-top-padding: calc(var(--xxxl) * 1.5);
+    --hero-bottom-padding: var(--xxxl);
+    --download-buttons-flex-direction: row;
     --download-buttons-size: 1.2rem;
     --feature-title-size: 1.3rem;
     --feature-text-size: 1rem;
@@ -347,8 +360,8 @@ html, body {
     --max-content-width: var(--content-width);
     --max-content-width: 1000px;
     --sides-padding: var(--xl);
-
     --dropdown-width: 280px;
+    --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: space-between;
     --title-size: 4.3rem;
     --app-title-size: 2rem;
@@ -357,7 +370,9 @@ html, body {
     --screenshot-wrapper-width: 360px;
     --menu-item-text-size: 1.4rem;
     --menu-items-gap: var(--xl);
-    --vertical-sections-spacing: calc(var(--xxxl) * 1.5);
+    --hero-top-padding: calc(var(--xxxl) * 1.5);
+    --hero-bottom-padding: var(--xxxl);
+    --download-buttons-flex-direction: row;
     --download-buttons-size: 1.2rem;
     --feature-title-size: 1.3rem;
     --feature-text-size: 1rem;
@@ -372,6 +387,7 @@ html, body {
     --content-width: 1200px;
     --max-content-width: var(--content-width);
     --dropdown-width: 280px;
+    --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: space-between;
     --title-size: 4.3rem;
     --app-title-size: 2rem;
@@ -380,7 +396,9 @@ html, body {
     --screenshot-wrapper-width: 450px;
     --menu-item-text-size: 1.4rem;
     --menu-items-gap: var(--xl);
-    --vertical-sections-spacing: calc(var(--xxxl) * 1.5);
+    --hero-top-padding: calc(var(--xxxl) * 1.5);
+    --hero-bottom-padding: calc(var(--xxxl) * 1.5);
+    --download-buttons-flex-direction: row;
     --download-buttons-size: 1.2rem;
     --feature-title-size: 1.4rem;
     --feature-text-size: 1.2rem;
@@ -422,23 +440,6 @@ html, body {
   }
 }
 
-/*@media(min-width: 768px) {*/
-/*  :root {*/
-/*    --content-width: 1200px;*/
-/*  }*/
-/*}*/
-
-/*!* Basic Utility Classes *!*/
-/*.white-bg {*/
-/*  background-color: var(--white);*/
-/*  color: #000;*/
-/*}*/
-
-/*.red-bg {*/
-/*  background-color: var(--red);*/
-/*  color: var(--white);*/
-/*}*/
-
 .row {
   display: flex;
   gap: var(--xl);
@@ -446,7 +447,8 @@ html, body {
 }
 
 header {
-  background-color: var(--red);
+  background: linear-gradient(to bottom, var(--red) 67%, var(--slightly-dark-red) 90%);
+  color: var(--hero-text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -465,7 +467,7 @@ header {
   bottom: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 0px 100px 6px var(--red);
+  box-shadow: 0 0px 100px 6px var(--hero-background-color);
   pointer-events: none;
 }
 
@@ -477,7 +479,7 @@ header {
   justify-content: space-between;
   align-items: baseline;
   color: var(--white);
-  padding: var(--base) var(--sides-padding);
+  padding: 20px var(--sides-padding) var(--base) var(--sides-padding);
   box-sizing: border-box;
 
   /*text-align: center;*/
@@ -501,6 +503,7 @@ header {
     font-size: var(--app-title-size);
     font-weight: lighter;
     font-family: var(--primary-font);
+    color: var(--hero-text-color);
   }
 
   .menu {
@@ -518,7 +521,8 @@ header {
     cursor: default;
     font-size: var(--menu-item-text-size);
     font-weight: lighter;
-    position: relative; /* Add this to scope dropdowns */
+    position: relative;
+    color: var(--hero-text-color);
   }
 
   /* Dropdown Styling */
@@ -646,10 +650,12 @@ header {
 
 /* Hero Section */
 .hero-section {
-  background: var(--red);
-  color: var(--white);
-  padding: calc(var(--vertical-sections-spacing) - var(--xl)) var(--base) var(--vertical-sections-spacing) var(--base);
+  /*background: var(--hero-background-color);*/
+  color: var(--hero-text-color);
+  max-width: var(--max-content-width);
+  padding: calc(var(--hero-top-padding) - var(--xl)) var(--sides-padding) var(--hero-bottom-padding) var(--sides-padding);
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -661,13 +667,14 @@ header {
   margin: 0;
   font-weight: lighter;
   max-width: 720px;
+
 }
 
 .subtitle {
   font-family: var(--primary-font);
   font-size: 1.15rem;
   margin-top: var(--large);
-  max-width: 500px;
+  max-width: 450px;
   display: flex;
   justify-content: center;
 }
@@ -676,8 +683,8 @@ header {
   display: flex;
   align-items: baseline;
   gap: var(--base);
-  background-color: var(--white);
-  color: var(--red);
+  background-color: var(--hero-button-background-color);
+  color: var(--hero-button-text-color);
   border: none;
   border-radius: var(--base);
   padding: var(--base) var(--medium);
@@ -695,12 +702,13 @@ header {
   background-color: var(--gray);
   /*pointer-events: none;*/
   cursor: not-allowed;
-  color: var(--dark-red);
+  color: var(--light-gray);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
     background-color: var(--dark-red);
+    color: var(--hero-button-hover-text-color);
   }
 
   .button:active {
@@ -709,6 +717,7 @@ header {
 
   .button.disabled:hover {
     background-color: var(--slightly-dark-gray);
+    color: var(--slightly-light-gray);
   }
 
   .button.disabled:active {
@@ -729,14 +738,16 @@ header {
 .download-buttons {
   margin-top: var(--medium);
   display: flex;
+  flex-direction: var(--download-buttons-flex-direction);
   gap: var(--medium);
 }
 
 main {
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  /*box-shadow: 0px -100px 0px 0px red;*/
-  padding: var(--xxxl) 0;
+  box-shadow: 0px 16px 0px 37px var(--slightly-dark-red);
+  padding: var(--main-top-padding) 0 var(--xxxl) 0;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
 }
@@ -773,7 +784,7 @@ main {
     color: var(--red);
     padding: var(--small) var(--base);
     border-radius: var(--base);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: var(--primary-font);
     font-weight: bold;
   }
