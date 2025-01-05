@@ -245,6 +245,10 @@ textarea {
   }
 }
 
+h2 {
+  margin: 0;
+}
+
 /* ++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++ */
 /* ++++++++++++++++++++++++++++++++++++++++++ */
@@ -350,7 +354,7 @@ html, body {
     --feature-title-size: 1.3rem;
     --feature-text-size: 1rem;
     --feature-text-width: var(--content-width);
-    --feature-group-section-gap: var(--large);
+    --feature-group-section-gap: var(--xl);
     --features-group-bottom-margin: var(--xxxl);
   }
 }
