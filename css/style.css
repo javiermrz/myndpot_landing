@@ -291,6 +291,8 @@ html, body {
 :root {
   --primary-font: 'Comfortaa', cursive;
   --secondary-font: 'Nunito', sans-serif;
+  --very-light-red: #fff8f8;
+  --light-red: #fdecec;
   --red: #FF0000;
   /*--slightly-dark-red: #e70202;*/
   --slightly-dark-red: #e00101;
@@ -304,28 +306,50 @@ html, body {
   --slightly-light-gray: #b7b7cb;
   --light-gray: #dbdbea;
   /*--hero-background-color: var(--light-orange);*/
-  --hero-background-color: var(--red);
-  --hero-text-color: var(--white);
-  --hero-button-background-color: var(--white);
-  --hero-button-text-color: var(--dark-red);
-  --hero-button-hover-text-color: var(--red);
+  --app-title-font-size: 1.8rem;
+  --app-title-text-color: var(--red);
+  --app-title-font-weight: bold;
+  --hero-title-font-weight: bold;
+  --hero-title-text-color: black;
+  --hero-subtitle-text-color: var(--dark-gray);
+  --hero-background-color: var(--white);
+  --hero-text-color: var(--red);
+  --hero-text-font-weight: normal;
+  --hero-button-background-color: var(--red);
+  --hero-button-text-color: var(--white);
+  --hero-button-hover-text-color: var(--white);
+  --hero-padding-bottom: 0;
   --content-width: 100%;
   --max-content-width: 400px;
   --dropdown-width: 260px;
   --main-top-padding: var(--xxl);
   --features-group-section-justify-content: center;
-  --title-size: 3rem;
   --screenshot-img-max-height: 370px;
   --screenshot-wrapper-height: 332px;
   --screenshot-wrapper-width: var(--content-width);
   --sides-padding: var(--medium);
-  --app-title-size: 1.8rem;
+  --title-text-color: bold;
+  --title-font-weight: bold;
+  --menu-item-text-color: var(--dark-gray);
+  --menu-dropdown-background-color: var(--red);
+  --menu-dropdown-text-color: var(--white);
+  --menu-dropdown-disabled-text-color: black;
+  --menu-dropdown-disabled-hover-text-color: var(--gray);
+  --menu-dropdown-disabled-hover-background-color: var(--dark-red);
+  --menu-dropdown-hover-background-color: var(--white);
+  --menu-dropdown-hover-text-color: var(--red);
   --menu-item-text-size: 1.2rem;
   --menu-items-gap: var(--base);
+  --hero-title-size: 3rem;
   --hero-top-padding: var(--xxxl);
   --hero-bottom-padding: 68px;
+  --hero-top-background-color: var(--white);
+  --hero-bottom-background-color: #f3c0c0;
   --download-buttons-flex-direction: column;
   --download-buttons-size: 1rem;
+  --main-background-darker-color: #fff2f2;
+  --main-background-color: var(--very-light-red);
+  --main-background-lighter-color: var(--white);
   --feature-title-size: 1.3rem;
   --feature-text-size: 1rem;
   --feature-text-width: var(--content-width);
@@ -340,8 +364,9 @@ html, body {
     --dropdown-width: 280px;
     --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: center;
-    --title-size: 3rem;
-    --app-title-size: 2rem;
+    --hero-title-size: 3rem;
+    --hero-padding-bottom: var(--large);
+    --app-title-font-size: 2rem;
     --screenshot-img-max-height: 450px;
     --screenshot-wrapper-height: 400px;
     --screenshot-wrapper-width: var(--content-width);
@@ -368,8 +393,9 @@ html, body {
     --dropdown-width: 280px;
     --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: space-between;
-    --title-size: 4.3rem;
-    --app-title-size: 2rem;
+    --hero-title-size: 4.3rem;
+    --hero-padding-bottom: var(--large);
+    --app-title-font-size: 2rem;
     --screenshot-img-max-height: 480px;
     --screenshot-wrapper-height: 425px;
     --screenshot-wrapper-width: 360px;
@@ -394,8 +420,9 @@ html, body {
     --dropdown-width: 280px;
     --main-top-padding: var(--xxxl);
     --features-group-section-justify-content: space-between;
-    --title-size: 4.3rem;
-    --app-title-size: 2rem;
+    --hero-title-size: 4.3rem;
+    --hero-padding-bottom: var(--large);
+    --app-title-font-size: 2rem;
     --screenshot-img-max-height: 630px;
     --screenshot-wrapper-height: 550px;
     --screenshot-wrapper-width: 450px;
@@ -452,8 +479,8 @@ html, body {
 }
 
 header {
-  background: linear-gradient(to bottom, var(--red) 67%, var(--slightly-dark-red) 90%);
   color: var(--hero-text-color);
+  padding-bottom: var(--hero-padding-bottom);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -505,10 +532,10 @@ header {
   }
 
   .app-title {
-    font-size: var(--app-title-size);
-    font-weight: lighter;
+    font-size: var(--app-title-font-size);
+    font-weight: var(--app-title-font-weight);
+    color: var(--app-title-text-color);
     font-family: var(--primary-font);
-    color: var(--hero-text-color);
   }
 
   .menu {
@@ -527,7 +554,7 @@ header {
     font-size: var(--menu-item-text-size);
     font-weight: lighter;
     position: relative;
-    color: var(--hero-text-color);
+    color: var(--menu-item-text-color);
   }
 
   /* Dropdown Styling */
@@ -559,7 +586,7 @@ header {
   .dropdown .dropdown-item {
     cursor: pointer;
     padding: var(--base);
-    color: black;
+    color: var(--menu-dropdown-text-color);
     border-radius: var(--base);
     transition: color 0.4s, background-color 0.4s ease;
     display: flex;
@@ -568,13 +595,14 @@ header {
   }
 
   .dropdown .dropdown-item.disabled {
-    color: var(--gray);
+    color: var(--menu-dropdown-disabled-text-color);
     cursor: not-allowed;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .dropdown .dropdown-item:hover {
-      background-color: var(--light-orange);
+      background-color: var(--menu-dropdown-hover-background-color);
+      color: var(--menu-dropdown-hover-text-color);
     }
 
     .dropdown .dropdown-item:active {
@@ -582,7 +610,8 @@ header {
     }
 
     .dropdown .dropdown-item.disabled:hover {
-      background-color: var(--light-gray);
+      background-color: var(--menu-dropdown-disabled-hover-background-color);
+      color: var(--menu-dropdown-disabled-hover-text-color);
     }
 
     .dropdown .dropdown-item.disabled:active {
@@ -606,7 +635,8 @@ header {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #ffffff;
+    /*border-bottom: 10px solid #ffffff;*/
+    border-bottom: 10px solid var(--menu-dropdown-background-color);
     position: absolute;
     top: calc(-1 * var(--small)); /* Position above dropdown */
     right: var(--large); /* Adjust to align under menu item */
@@ -615,7 +645,7 @@ header {
   /* Dropdown Content */
 
   .dropdown-content {
-    background-color: #ffffff;
+    background-color: var(--menu-dropdown-background-color);
     border-radius: var(--medium);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: var(--base);
@@ -668,15 +698,17 @@ header {
 
 .title {
   font-family: var(--primary-font);
-  font-size: var(--title-size);
+  font-size: var(--hero-title-size);
+  font-weight: var(--hero-title-font-weight);
+  color: var(--hero-title-text-color);
   margin: 0;
-  font-weight: lighter;
   max-width: 720px;
 
 }
 
 .subtitle {
   font-family: var(--primary-font);
+  color: var(--hero-subtitle-text-color);
   font-size: 1.15rem;
   margin-top: var(--large);
   max-width: 450px;
@@ -750,9 +782,9 @@ header {
 main {
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  box-shadow: 0px 16px 0px 37px var(--slightly-dark-red);
+  box-shadow: 0px 16px 0px 0px var(--main-background-darker-color);
   padding: var(--main-top-padding) 0 var(--xxxl) 0;
-  background-color: var(--white);
+  background: linear-gradient(to bottom, var(--main-background-darker-color) 0%, var(--main-background-color) 9%, var(--main-background-lighter-color) 40%);
   display: flex;
   flex-direction: column;
 }
