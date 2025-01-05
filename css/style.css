@@ -288,6 +288,12 @@ html, body {
   display: none !important;
 }
 
+.osano-cm-denyAll {
+  background-color: white;
+  color: black;
+  border: 1px solid;
+}
+
 :root {
   --primary-font: 'Comfortaa', cursive;
   --secondary-font: 'Nunito', sans-serif;
