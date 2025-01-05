@@ -544,6 +544,7 @@ header {
       width: var(--logo-size);
       height: var(--logo-size);
       transform: translateY(var(--logo-translate-y));
+    /*  */
     }
 
     span {
