@@ -300,15 +300,19 @@ html, body {
   --dark-red: #570101;
   --slightly-light-orange: #fdc7a5;
   --light-orange: #FFE9DC;
-  --dark-gray: #62628a;
-  --slightly-dark-gray: #757594;
   --gray: #8686a6;
+  --slightly-dark-gray: #757594;
+  --dark-gray: #62628a;
+  --very-dark-gray: #4e4e5e;
   --slightly-light-gray: #b7b7cb;
   --light-gray: #dbdbea;
   /*--hero-background-color: var(--light-orange);*/
-  --app-title-font-size: 1.8rem;
+  --app-title-font-size: 1.4rem;
   --app-title-text-color: var(--red);
   --app-title-font-weight: bold;
+  --app-title-logo-gap: 12px;
+  --logo-size: 24px;
+  --logo-translate-y: 2px;
   --hero-title-font-weight: bold;
   --hero-title-text-color: black;
   --hero-subtitle-text-color: var(--dark-gray);
@@ -331,13 +335,13 @@ html, body {
   --title-text-color: bold;
   --title-font-weight: bold;
   --menu-item-text-color: var(--dark-gray);
-  --menu-dropdown-background-color: var(--red);
-  --menu-dropdown-text-color: var(--white);
-  --menu-dropdown-disabled-text-color: black;
+  --menu-dropdown-background-color: var(--white);
+  --menu-dropdown-text-color: var(--red);
+  --menu-dropdown-disabled-text-color: var(--gray);
   --menu-dropdown-disabled-hover-text-color: var(--gray);
-  --menu-dropdown-disabled-hover-background-color: var(--dark-red);
-  --menu-dropdown-hover-background-color: var(--white);
-  --menu-dropdown-hover-text-color: var(--red);
+  --menu-dropdown-disabled-hover-background-color: var(--light-gray);
+  --menu-dropdown-hover-background-color: var(--red);
+  --menu-dropdown-hover-text-color: var(--white);
   --menu-item-text-size: 1.2rem;
   --menu-items-gap: var(--base);
   --hero-title-size: 3rem;
@@ -366,7 +370,10 @@ html, body {
     --features-group-section-justify-content: center;
     --hero-title-size: 3rem;
     --hero-padding-bottom: var(--large);
-    --app-title-font-size: 2rem;
+    --app-title-font-size: 1.6rem;
+    --app-title-logo-gap: 12px;
+    --logo-size: 28px;
+    --logo-translate-y: 2px;
     --screenshot-img-max-height: 450px;
     --screenshot-wrapper-height: 400px;
     --screenshot-wrapper-width: var(--content-width);
@@ -395,7 +402,10 @@ html, body {
     --features-group-section-justify-content: space-between;
     --hero-title-size: 4.3rem;
     --hero-padding-bottom: var(--large);
-    --app-title-font-size: 2rem;
+    --app-title-font-size: 1.6rem;
+    --app-title-logo-gap: 12px;
+    --logo-size: 28px;
+    --logo-translate-y: 2px;
     --screenshot-img-max-height: 480px;
     --screenshot-wrapper-height: 425px;
     --screenshot-wrapper-width: 360px;
@@ -422,7 +432,10 @@ html, body {
     --features-group-section-justify-content: space-between;
     --hero-title-size: 4.3rem;
     --hero-padding-bottom: var(--large);
-    --app-title-font-size: 2rem;
+    --app-title-font-size: 1.8rem;
+    --app-title-logo-gap: 12px;
+    --logo-size: 30px;
+    --logo-translate-y: 2px;
     --screenshot-img-max-height: 630px;
     --screenshot-wrapper-height: 550px;
     --screenshot-wrapper-width: 450px;
@@ -516,15 +529,6 @@ header {
 
   /*text-align: center;*/
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*background-color: var(--light-orange);*/
-    background-color: rgba(87, 1, 1, 0.9);
-    border-radius: var(--medium);
-  }
-
   img {
     margin: calc(var(--small) * -1);
     width: 100%;
@@ -532,10 +536,22 @@ header {
   }
 
   .app-title {
-    font-size: var(--app-title-font-size);
-    font-weight: var(--app-title-font-weight);
-    color: var(--app-title-text-color);
-    font-family: var(--primary-font);
+    display: flex;
+    align-items: baseline;
+    gap: var(--app-title-logo-gap);
+
+    .logo {
+      width: var(--logo-size);
+      height: var(--logo-size);
+      transform: translateY(var(--logo-translate-y));
+    }
+
+    span {
+      font-size: var(--app-title-font-size);
+      font-weight: var(--app-title-font-weight);
+      color: var(--app-title-text-color);
+      font-family: var(--primary-font);
+    }
   }
 
   .menu {
@@ -607,6 +623,7 @@ header {
 
     .dropdown .dropdown-item:active {
       background-color: var(--slightly-light-orange);
+      color: var(--menu-dropdown-hover-text-color);
     }
 
     .dropdown .dropdown-item.disabled:hover {
@@ -621,11 +638,13 @@ header {
 
   @media (hover: none) and (pointer: coarse) {
     .dropdown .dropdown-item:active {
-      background-color: var(--light-orange);
+      background-color: var(--red);
+      color: var(--white);
     }
 
     .dropdown .dropdown-item.disabled:active {
       background-color: var(--light-gray);
+      color: var(--dark-gray);
     }
   }
 
@@ -647,7 +666,7 @@ header {
   .dropdown-content {
     background-color: var(--menu-dropdown-background-color);
     border-radius: var(--medium);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 22px -1px rgba(0, 0, 0, 0.1);
     padding: var(--base);
   }
 
@@ -782,7 +801,7 @@ header {
 main {
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  box-shadow: 0px 16px 0px 0px var(--main-background-darker-color);
+  box-shadow: 0px 6px 0px 0px var(--main-background-darker-color);
   padding: var(--main-top-padding) 0 var(--xxxl) 0;
   background: linear-gradient(to bottom, var(--main-background-darker-color) 0%, var(--main-background-color) 9%, var(--main-background-lighter-color) 40%);
   display: flex;
