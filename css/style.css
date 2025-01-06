@@ -301,7 +301,7 @@ html, body {
   --light-red: #fdecec;
   --red: #FF0000;
   /*--slightly-dark-red: #e70202;*/
-  --slightly-dark-red: #e00101;
+  --slightly-dark-red: #d70909;
   --white: #FFFFFF;
   --dark-red: #570101;
   --slightly-light-orange: #fdc7a5;
@@ -346,8 +346,8 @@ html, body {
   --menu-dropdown-disabled-text-color: var(--gray);
   --menu-dropdown-disabled-hover-text-color: var(--gray);
   --menu-dropdown-disabled-hover-background-color: var(--light-gray);
-  --menu-dropdown-hover-background-color: var(--red);
-  --menu-dropdown-hover-text-color: var(--white);
+  --menu-dropdown-hover-background-color: var(--light-orange);
+  --menu-dropdown-hover-text-color: var(--red);
   --menu-item-text-size: 1.2rem;
   --menu-items-gap: var(--base);
   --hero-title-size: 3rem;
@@ -645,8 +645,8 @@ header {
 
   @media (hover: none) and (pointer: coarse) {
     .dropdown .dropdown-item:active {
-      background-color: var(--red);
-      color: var(--white);
+      background-color: var(--menu-dropdown-hover-background-color);
+      color: var(--menu-dropdown-hover-text-color);
     }
 
     .dropdown .dropdown-item.disabled:active {
@@ -770,12 +770,12 @@ header {
 
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
-    background-color: var(--dark-red);
+    background-color: var(--slightly-dark-red);
     color: var(--hero-button-hover-text-color);
   }
 
   .button:active {
-    background-color: black;
+    background-color: var(--dark-red);
   }
 
   .button.disabled:hover {
@@ -790,11 +790,13 @@ header {
 
 @media (hover: none) and (pointer: coarse) {
   .button:active {
-    background-color: var(--dark-red);
+    background-color: var(--slightly-dark-red);
+    color: var(--hero-button-hover-text-color);
   }
 
   .button.disabled:active {
-    background-color: var(--slightly-dark-gray);
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
   }
 }
 
