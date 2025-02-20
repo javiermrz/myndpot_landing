@@ -59,7 +59,10 @@
         "email": "myndpot@gmail.com",
         "contactType": "Customer Service",
         "areaServed": "Worldwide",
-        "availableLanguage": ["English", "Spanish"]
+        "availableLanguage": [
+          "English",
+          "Spanish"
+        ]
       }
     }
   </script>
@@ -116,6 +119,7 @@
     });
 
   </script>
+  <script defer src="js/app.js"></script>
   <title>MyndPot: Flexible Task Management & To-Do Lists</title>
 </head>
 <body>
@@ -129,11 +133,15 @@
           <div class="dropdown download-dropdown">
             <div class="triangle"></div>
             <div class="dropdown-content">
-              <a class="dropdown-item disabled">
+              <a
+                class="dropdown-item"
+                href="https://apps.apple.com/us/app/myndpot/id6740203527">
                 <i class="fa-solid fa-apple-whole"></i>
-                <p>Coming Soon</p>
+                <p>Download on iOS</p>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=io.myndpot.main" class="dropdown-item">
+              <a
+                class="dropdown-item"
+                href="https://play.google.com/store/apps/details?id=io.myndpot.main">
                 <i class="fa-solid fa-robot"></i>
                 <p>Download on Android</p>
               </a>
@@ -166,10 +174,17 @@
         Don't miss out anything. Track your life's errands and lists in a flexible way and with minimum hassle.
       </p>
       <div class="download-buttons">
-        <a href="https://play.google.com/store/apps/details?id=io.myndpot.main" class="button">
+        <a class="button android-button hidden" href="https://play.google.com/store/apps/details?id=io.myndpot.main">
+          Download Now
+        </a>
+        <a class="button ios-button hidden" href="https://apps.apple.com/us/app/myndpot/id6740203527">
+          Download Now
+        </a>
+        <a class="button pc-button hidden" href="https://play.google.com/store/apps/details?id=io.myndpot.main">
           <i class="fa-solid fa-robot"></i>Google Play
         </a>
-        <a class="button disabled" title="Coming Soon"><i class="fa-solid fa-apple-whole"></i>Coming Soon</a>
+        <a class="button pc-button hidden" href="https://apps.apple.com/us/app/myndpot/id6740203527">
+          <i class="fa-solid fa-apple-whole"></i>App Store</a>
       </div>
     </div>
   </header>

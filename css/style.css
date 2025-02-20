@@ -804,7 +804,12 @@ header {
   margin-top: var(--medium);
   display: flex;
   flex-direction: var(--download-buttons-flex-direction);
+  justify-content: center;
   gap: var(--medium);
+
+  i {
+    min-width: 20px;
+  }
 }
 
 main {
