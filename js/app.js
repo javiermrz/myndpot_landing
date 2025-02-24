@@ -1,3 +1,5 @@
+console.log('-------------------')
+
 function detectDevice() {
   // Use modern userAgentData API if available
   console.log(1)
