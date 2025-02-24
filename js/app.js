@@ -1,7 +1,8 @@
 function detectDevice() {
   // Use modern userAgentData API if available
+  console.log(1)
   if (navigator.userAgentData) {
-    console.log(1)
+    console.log(2)
     const platform = navigator.userAgentData.platform.toLowerCase();
     console.log(platform)
     if (platform.includes("android")) return "Android";
@@ -11,6 +12,7 @@ function detectDevice() {
 
   // Fallback for older browsers
   const userAgent = navigator.userAgent.toLowerCase();
+  console.log({userAgent})
   if (/android/.test(userAgent)) return "Android";
 
   // Modern iPads report themselves as MacOS, so check screen size
