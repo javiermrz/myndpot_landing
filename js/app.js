@@ -1,7 +1,9 @@
 function detectDevice() {
   // Use modern userAgentData API if available
   if (navigator.userAgentData) {
+    console.log(1)
     const platform = navigator.userAgentData.platform.toLowerCase();
+    console.log(platform)
     if (platform.includes("android")) return "Android";
     if (platform.includes("ios") || platform.includes("iphone") || platform.includes("ipad")) return "iOS";
     return "Computer";
